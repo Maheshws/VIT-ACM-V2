@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="Turn off Notification" android:summary="Turn off notifications for events &amp; announcements." android:key="Notification" android:defaultValue="FALSE"/>
+   <!-- <CheckBoxPreference android:title="Allow Bug Reports" android:summary="No personal information will be sent." android:key="Reports" android:defaultValue="TRUE"/>
+    <CheckBoxPreference android:summary="Use Light Theme(Restart Required)" android:defaultValue="FALSE" android:title="Light Theme" android:key="Theme"/> -->
+</PreferenceScreen>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VIT ACM v2</string>
+    <string name="title_section1">Home</string>
+    <string name="title_section2">Home</string>
+    <string name="title_section3">Account</string>
+    <string name="title_section4">Announcement</string>
+    <string name="title_section5">Blog</string>
+    <string name="title_section6">Contact</string>
+    <string name="title_section7">Events</string>
+    <string name="title_section8">Settings</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_events">Events</string>
+    <string name="action_setting">Settings</string>
+    <string name="action_account">Accounts</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="acc_user_name">Full Name</string>
+    <string name="acc_user_rollno">Roll No.</string>
+    <string name="acc_user_branch">Year &amp; Branch</string>
+    <string name="acc_user_email">Email</string>
+    <string name="acc_user_phone">Phone no.</string>
+    <string name="dummy_content">VIT ACM\nChapter</string>
+
+    <string-array name="branch">
+        <item>Select Branch</item>
+        <item>FE - EXTC</item>
+        <item>FE - ETRX</item>
+        <item>FE - CMPN</item>
+        <item>FE - IT</item>
+        <item>FE - BIOM</item>
+        <item>SE - EXTC</item>
+        <item>SE - ETRX</item>
+        <item>SE - CMPN</item>
+        <item>SE - IT</item>
+        <item>SE - BIOM</item>
+        <item>TE - EXTC</item>
+        <item>TE - ETRX</item>
+        <item>TE - CMPN</item>
+        <item>TE - IT</item>
+        <item>TE - BIOM</item>
+        <item>BE - EXTC</item>
+        <item>BE - ETRX</item>
+        <item>BE - CMPN</item>
+        <item>BE - IT</item>
+        <item>BE - BIOM</item>
+        <item>Others </item>
+    </string-array>
+</resources>

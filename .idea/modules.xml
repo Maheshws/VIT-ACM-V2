@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/VITACMv2.iml" filepath="$PROJECT_DIR$/VITACMv2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vitacm/vitacm.iml" filepath="$PROJECT_DIR$/vitacm/vitacm.iml" />
+    </modules>
+  </component>
+</project>
+

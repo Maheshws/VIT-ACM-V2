@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/texthead"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:text="All fields are required."
+                android:textSize="15dp" />
+
+            <TableLayout
+                android:id="@+id/mainTable"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                android:paddingLeft="3dip"
+                android:paddingRight="3dip"
+                android:stretchColumns="1" >
+
+                <TableRow android:padding="5dp" >
+
+                    <TextView
+                        android:id="@+id/textSResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:text="@string/acc_user_name" />
+
+                    <EditText
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="FirstName  LastName"
+                        android:inputType="textPersonName" >
+
+                    </EditText>
+                </TableRow>
+
+                <TableRow android:padding="5dp" >
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:text="@string/acc_user_email" />
+
+                    <EditText
+                        android:id="@+id/userEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="abc@xyz.com"
+                        android:inputType="textEmailAddress" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp" >
+
+                    <TextView
+                        android:id="@+id/TextView02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:text="@string/acc_user_phone" />
+
+                    <EditText
+                        android:id="@+id/userPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="98XXXXXXXX"
+                        android:inputType="phone" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp" >
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:text="@string/acc_user_branch" />
+
+                    <Spinner
+                        android:id="@+id/branch"
+                        android:layout_width="207dp"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/branch" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp" >
+
+                    <TextView
+                        android:id="@+id/TextView03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:text="@string/acc_user_rollno" />
+
+                    <EditText
+                        android:id="@+id/rollno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="12XXXXXX"
+                        android:inputType="text|textCapCharacters" />
+
+                </TableRow>
+            </TableLayout>
+
+            <Button
+                android:id="@+id/saveAccountInfo"
+                android:background="@drawable/default_button"
+                style="@style/Default_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <TextView
+                android:id="@+id/regMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=" "
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
