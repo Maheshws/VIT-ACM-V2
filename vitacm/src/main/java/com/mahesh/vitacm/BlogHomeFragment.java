@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,11 @@ import java.util.List;
 public class BlogHomeFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     private List<BlogObject> allBlog = new ArrayList<BlogObject>();
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,6 +56,7 @@ public class BlogHomeFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         TextView defaultMessage = (TextView) getActivity().findViewById(R.id.fragment_message);
         defaultMessage.setText("Blog Coming In Next Update");
         UtilitiesMethod utils = new UtilitiesMethod();
@@ -57,6 +64,7 @@ public class BlogHomeFragment extends Fragment {
         populateListView();
         registerClickCallback();
         defaultMessage.setVisibility(View.INVISIBLE);
+
     }
 
     private void populateListView() {
@@ -72,7 +80,11 @@ public class BlogHomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
 
                 BlogObject clickedBlog = allBlog.get(position);
-                Toast.makeText(getActivity(), "Complete Blog View In Next Update :P", Toast.LENGTH_LONG).show();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, BlogViewFragment.newInstance(clickedBlog))
+                        .addToBackStack(null)
+                        .commit();
 
             }
         });
