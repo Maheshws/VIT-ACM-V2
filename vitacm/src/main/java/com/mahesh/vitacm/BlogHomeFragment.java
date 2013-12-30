@@ -59,9 +59,12 @@ public class BlogHomeFragment extends Fragment {
 
         TextView defaultMessage = (TextView) getActivity().findViewById(R.id.fragment_message);
         defaultMessage.setText("Blog Coming In Next Update");
+        if(allBlog.isEmpty()){
         UtilitiesMethod utils = new UtilitiesMethod();
         utils.fillMyBlog(allBlog, getActivity());
+        }
         populateListView();
+
         registerClickCallback();
         defaultMessage.setVisibility(View.INVISIBLE);
 
