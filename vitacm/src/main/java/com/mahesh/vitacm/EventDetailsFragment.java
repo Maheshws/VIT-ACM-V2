@@ -38,6 +38,9 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
     ImageView imageView;
     Button Register;
     int eid;
+    private static String HEADER_BAR;
+    private Activity parent;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +57,8 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
 
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        parent = activity;
+        HEADER_BAR = getString(R.string.title_section7);
         ((MainActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }
@@ -61,6 +66,11 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) parent).setActionBarTitle(HEADER_BAR);
     }
 
     @Override

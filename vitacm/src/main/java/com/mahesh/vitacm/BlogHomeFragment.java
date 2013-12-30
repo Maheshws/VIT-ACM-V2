@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +21,9 @@ import java.util.List;
  */
 public class BlogHomeFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private static String HEADER_BAR;
+    private Activity parent;
+
     private List<BlogObject> allBlog = new ArrayList<BlogObject>();
 
     public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,8 @@ public class BlogHomeFragment extends Fragment {
 
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        parent = activity;
+        HEADER_BAR = getString(R.string.title_section5);
         ((MainActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }
@@ -53,15 +57,20 @@ public class BlogHomeFragment extends Fragment {
         super.onDetach();
     }
 
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) parent).setActionBarTitle(HEADER_BAR);
+    }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         TextView defaultMessage = (TextView) getActivity().findViewById(R.id.fragment_message);
         defaultMessage.setText("Blog Coming In Next Update");
-        if(allBlog.isEmpty()){
-        UtilitiesMethod utils = new UtilitiesMethod();
-        utils.fillMyBlog(allBlog, getActivity());
+        if (allBlog.isEmpty()) {
+            UtilitiesMethod utils = new UtilitiesMethod();
+            utils.fillMyBlog(allBlog, getActivity());
         }
         populateListView();
 

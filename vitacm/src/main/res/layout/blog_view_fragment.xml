@@ -11,21 +11,31 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/BlogTitle" />
+        android:id="@+id/BlogTitle"
+        android:padding="5dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/BlogBy" />
+        android:id="@+id/BlogBy"
+        android:paddingLeft="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/BlogTime" />
+        android:id="@+id/BlogTime"
+        android:paddingLeft="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textStyle="italic" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -40,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/BlogContent" />
+        android:id="@+id/BlogContent"
+        android:padding="5dp" />
 </ScrollView>
 </LinearLayout>

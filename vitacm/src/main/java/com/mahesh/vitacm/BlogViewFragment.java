@@ -1,13 +1,9 @@
 package com.mahesh.vitacm;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.text.Html;
-import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,33 +19,36 @@ public class BlogViewFragment extends Fragment {
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
     private static BlogObject currentBlog;
+    private Activity parent;
 
     /**
      * Returns a new instance of this fragment for the given section
      * number.
+     *
      * @param sectionNumber
      */
     public static BlogViewFragment newInstance(BlogObject sectionNumber) {
         BlogViewFragment fragment = new BlogViewFragment();
         Bundle args = new Bundle();
-        currentBlog=sectionNumber;
+        currentBlog = sectionNumber;
         fragment.setArguments(args);
         return fragment;
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.blog_view_fragment, container, false);
-
+        ((MainActivity) parent).onSectionAttached(
+                getArguments().getInt(ARG_SECTION_NUMBER));
         return rootView;
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        parent = activity;
         ((MainActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }

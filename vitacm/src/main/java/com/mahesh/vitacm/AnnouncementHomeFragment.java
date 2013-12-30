@@ -13,7 +13,8 @@ import android.widget.TextView;
  */
 public class AnnouncementHomeFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    private static String HEADER_BAR;
+    private Activity parent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class AnnouncementHomeFragment extends Fragment {
 
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        parent = activity;
+        HEADER_BAR = getString(R.string.title_section4);
         ((MainActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }
@@ -44,6 +47,11 @@ public class AnnouncementHomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         TextView defaultMessage = (TextView) getActivity().findViewById(R.id.fragment_message);
         defaultMessage.setText("Announcements Coming In Next Update");
+    }
+
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) parent).setActionBarTitle(HEADER_BAR);
     }
 
 }

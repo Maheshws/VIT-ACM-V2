@@ -24,6 +24,9 @@ public class AccountSettingsFragment extends Fragment implements View.OnClickLis
     private EditText userRollno, userName, userEmail, userPhone;
     private Spinner userBranch;
     private Button saveAccountInfo;
+    private static String HEADER_BAR;
+    private Activity parent;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class AccountSettingsFragment extends Fragment implements View.OnClickLis
 
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        parent = activity;
+        HEADER_BAR = getString(R.string.title_section3);
         ((MainActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }
@@ -49,6 +54,11 @@ public class AccountSettingsFragment extends Fragment implements View.OnClickLis
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) parent).setActionBarTitle(HEADER_BAR);
     }
 
     public void onActivityCreated(Bundle saved) {

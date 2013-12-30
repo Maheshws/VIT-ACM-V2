@@ -41,6 +41,9 @@ import java.util.List;
  */
 public class ContactUsFragment extends Fragment implements View.OnClickListener {
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private static String HEADER_BAR;
+    private Activity parent;
+
 
     TextView texthead, regMsg;
     EditText userMessage;
@@ -62,6 +65,8 @@ public class ContactUsFragment extends Fragment implements View.OnClickListener 
 
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        parent = activity;
+        HEADER_BAR = getString(R.string.title_section6);
         ((MainActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }
@@ -69,6 +74,11 @@ public class ContactUsFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) parent).setActionBarTitle(HEADER_BAR);
     }
 
     @Override

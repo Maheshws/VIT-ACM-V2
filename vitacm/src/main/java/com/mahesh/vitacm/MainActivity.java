@@ -63,31 +63,37 @@ public class MainActivity extends ActionBarActivity
             case 2:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .addToBackStack(null)
                         .commit();
                 break;
             case 3:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, AccountSettingsFragment.newInstance(position + 1))
+                        .addToBackStack(null)
                         .commit();
                 break;
             case 4:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, AnnouncementHomeFragment.newInstance(position + 1))
+                        .addToBackStack(null)
                         .commit();
                 break;
             case 5:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, BlogHomeFragment.newInstance(position + 1))
+                        .addToBackStack(null)
                         .commit();
                 break;
             case 6:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, ContactUsFragment.newInstance(position + 1))
+                        .addToBackStack(null)
                         .commit();
                 break;
             case 7:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, EventDetailsFragment.newInstance(position + 1))
+                        .addToBackStack(null)
                         .commit();
                 break;
             case 8:
@@ -96,6 +102,7 @@ public class MainActivity extends ActionBarActivity
             default:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .addToBackStack(null)
                         .commit();
         }
 
@@ -163,6 +170,13 @@ public class MainActivity extends ActionBarActivity
         return super.onOptionsItemSelected(item);
     }
 
+    public void setActionBarTitle(String Title) {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setTitle(Title);
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -172,6 +186,7 @@ public class MainActivity extends ActionBarActivity
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        private Activity parent;
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -199,6 +214,7 @@ public class MainActivity extends ActionBarActivity
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
+            parent = activity;
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
@@ -210,6 +226,13 @@ public class MainActivity extends ActionBarActivity
             SharedPreferences prefs = this.getActivity().getSharedPreferences("app_data", 0);
             textView.setText(Html.fromHtml(prefs.getString("facts", "<b>No Internet Connection</b>")));
         }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            ((MainActivity) parent).setActionBarTitle(getString(R.string.title_section2));
+        }
+
     }
 
 }
