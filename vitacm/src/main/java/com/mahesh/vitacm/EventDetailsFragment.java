@@ -231,7 +231,6 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
 
         dlgAlert.setMessage("Please fill account information first");
         dlgAlert.setTitle("Invalid Account Information");
-        dlgAlert.create().show();
         dlgAlert.setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
