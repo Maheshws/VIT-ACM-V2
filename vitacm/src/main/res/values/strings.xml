@@ -9,7 +9,7 @@
     <string name="title_section5">Blog</string>
     <string name="title_section6">Contact</string>
     <string name="title_section7">Events</string>
-    <string name="title_section8">Settings</string>
+    <string name="title_section8">Options</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_events">Events</string>
