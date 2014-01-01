@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageViewBlog"
         android:layout_gravity="center_horizontal" />
-    <ScrollView
+    <!--<ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView" >
@@ -52,5 +52,11 @@
         android:text="New Text"
         android:id="@+id/BlogContent"
         android:padding="5dp" />
-</ScrollView>
+</ScrollView>-->
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/webView"
+        style="@style/AppTheme" />
 </LinearLayout>

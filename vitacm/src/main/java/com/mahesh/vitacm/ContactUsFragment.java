@@ -202,6 +202,7 @@ public class ContactUsFragment extends Fragment implements View.OnClickListener 
                         alert.dismiss();
                         fragmentManager.beginTransaction()
                                 .replace(R.id.container, AccountSettingsFragment.newInstance(3))
+                                .addToBackStack(null)
                                 .commit();
 
                     }

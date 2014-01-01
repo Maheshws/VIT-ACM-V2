@@ -254,12 +254,14 @@ public class NavigationDrawerFragment extends Fragment {
         if (item.getItemId() == R.id.action_events) {
             fragmentManager.beginTransaction()
                     .replace(R.id.container, EventDetailsFragment.newInstance(7))
+                    .addToBackStack(null)
                     .commit();
             return true;
         }
         if (item.getItemId() == R.id.action_account) {
             fragmentManager.beginTransaction()
                     .replace(R.id.container, AccountSettingsFragment.newInstance(3))
+                    .addToBackStack(null)
                     .commit();
             return true;
         }

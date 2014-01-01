@@ -1,12 +1,16 @@
 package com.mahesh.vitacm;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -65,8 +69,21 @@ public class BlogViewFragment extends Fragment {
         TextView Timetext = (TextView) getActivity().findViewById(R.id.BlogTime);
         Timetext.setText("On " + currentBlog.getBlogTime());
 
+        /*
+        OLD(settextview in html) and load image
         TextView Contenttext = (TextView) getActivity().findViewById(R.id.BlogContent);
         Contenttext.setText(Html.fromHtml(currentBlog.getBlogContent()));
+        ImageView blogImage= (ImageView) getActivity().findViewById(R.id.imageViewBlog);
+        ImageLoader imgLoader = new ImageLoader(getActivity());
+        imgLoader.DisplayImage(currentBlog.getBlogImage(), 0, blogImage);
+        */
+        WebView contentView= (WebView) getActivity().findViewById(R.id.webView);
+        contentView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        contentView.getSettings().setLoadWithOverviewMode(true);
+        contentView.getSettings().setUseWideViewPort(true);
+        contentView.getSettings().setSupportZoom(false);
+        contentView.setBackgroundColor(Color.TRANSPARENT);
+        contentView.loadDataWithBaseURL(null,currentBlog.getBlogContent(), "text/html","UTF-8", null);
     }
 }
 

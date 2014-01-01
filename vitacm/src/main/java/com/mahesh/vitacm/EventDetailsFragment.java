@@ -1,11 +1,14 @@
 package com.mahesh.vitacm;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -180,13 +183,16 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
             Venue = json.getString("venue");
             Fees = json.getString("fees");
             Status = json.getInt("status");
-
-
+            final String imageURL="" + json.getString("img");
+            URL url = new URL("" + json.getString("img"));
             getActivity().runOnUiThread(new Runnable() {
                 public void run() {
                     textBoldMessage.setVisibility(View.GONE);
                     Register.setVisibility(View.VISIBLE);
                     imageView.setImageBitmap(null);
+                    ImageLoader imgLoader = new ImageLoader(getActivity());
+
+                    imgLoader.DisplayImage(imageURL,0, imageView);
                     textDesc.setText(Html.fromHtml(Desc));
 
                     textDesc.setMovementMethod(LinkMovementMethod.getInstance());
@@ -206,13 +212,7 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
                 }
             });
 
-            URL url = new URL("" + json.getString("img"));
-            final Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            getActivity().runOnUiThread(new Runnable() {
-                public void run() {
-                    imageView.setImageBitmap(bmp);
-                }
-            });
+
         } catch (Exception e) {
             // TODO: handle exception
             Log.e("log_tag", "Error Parsing Data " + e.toString());
@@ -221,6 +221,30 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+
+    }
+
+    AlertDialog alert;
+    public void AccountInvalid() {
+        final FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
+
+        dlgAlert.setMessage("Please fill account information first");
+        dlgAlert.setTitle("Invalid Account Information");
+        dlgAlert.create().show();
+        dlgAlert.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        alert.dismiss();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, AccountSettingsFragment.newInstance(3))
+                                .addToBackStack(null)
+                                .commit();
+
+                    }
+                });
+        alert = dlgAlert.create();
+        alert.show();
 
     }
 }
