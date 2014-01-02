@@ -45,7 +45,11 @@ public class PreferencesActivity extends PreferenceActivity {
         ClearData.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Toast.makeText(getApplicationContext(),"In Next Update :P",Toast.LENGTH_LONG).show();
+
+                UtilitiesMethod  utils=new UtilitiesMethod();
+                utils.setContext(PreferencesActivity.this);
+                utils.clearApplicationData();
+                Toast.makeText(getApplicationContext(),"Application Data Deleted",Toast.LENGTH_LONG).show();
                 return false;
             }
         });
