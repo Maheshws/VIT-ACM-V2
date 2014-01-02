@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
 
 
 public class SplashScreenActivity extends Activity {
-    private static final int MAXPROGRESS = 140;
+    private static final int MAXPROGRESS = 180;
     ProgressBar progress;
     boolean first_run = true;
 
@@ -57,6 +57,10 @@ public class SplashScreenActivity extends Activity {
             try {
                 UtilitiesMethod utils = new UtilitiesMethod();
                 utils.setContext(getApplicationContext());
+                updateProgess();
+                utils.getIndex();
+                updateProgess();
+                utils.getAnnouncements();
                 updateProgess();
                 utils.getBlog();
                 updateProgess();
