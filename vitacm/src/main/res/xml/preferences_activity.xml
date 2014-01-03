@@ -7,11 +7,17 @@
         <CheckBoxPreference android:summary="Use Light Theme(Restart Required)" android:defaultValue="FALSE" android:title="Light Theme" android:key="Theme"/> -->
     </PreferenceCategory>
     <PreferenceCategory android:title="Miscellaneous">
+        <Preference android:key="AboutApp" android:title="About VIT ACM"></Preference>
+        <Preference android:key="ClearData" android:title="Clear Application Data"></Preference>
         <Preference android:key="CurrentVersion" android:title="Current Version"></Preference>
+
         <Preference android:key="VisitWebsite" android:title="Visit VIT ACM Website" android:summary="Click here!">
             <intent android:action="android.intent.action.VIEW"
                 android:data="http://vitmumbai.acm.org" />
         </Preference>
-        <Preference android:key="ClearData" android:title="Clear Application Data"></Preference>
+        <Preference android:key="VisitTeamPage" android:title="VIT ACM Team" android:summary="Click here!">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="http://vitmumbai.acm.org/team.php" />
+        </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

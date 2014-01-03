@@ -1,5 +1,6 @@
 package com.mahesh.vitacm;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
@@ -50,6 +51,15 @@ public class PreferencesActivity extends PreferenceActivity {
                 utils.setContext(PreferencesActivity.this);
                 utils.clearApplicationData();
                 Toast.makeText(getApplicationContext(),"Application Data Deleted",Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+
+        Preference AboutApp= findPreference("AboutApp");
+        AboutApp.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                startActivity(new Intent(PreferencesActivity.this,AboutVITACMActivity.class));
                 return false;
             }
         });

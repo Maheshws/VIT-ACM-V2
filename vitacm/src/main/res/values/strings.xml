@@ -22,6 +22,7 @@
     <string name="acc_user_email">Email</string>
     <string name="acc_user_phone">Phone no.</string>
     <string name="dummy_content">VIT ACM\nChapter</string>
+    <string name="about_vit_acm_text"></string>
 
     <string-array name="branch">
         <item>Select Branch</item>
