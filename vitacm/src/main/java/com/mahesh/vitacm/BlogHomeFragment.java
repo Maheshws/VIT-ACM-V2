@@ -2,8 +2,6 @@ package com.mahesh.vitacm;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,9 +14,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,6 +107,7 @@ public class BlogHomeFragment extends Fragment {
     private class MyBlogListAdapter extends ArrayAdapter<BlogObject> {
         ImageView imageView;
         BlogObject currentBlog;
+
         public MyBlogListAdapter(Context context, int resource, List<BlogObject> objects) {
             super(context, resource, objects);
         }
@@ -134,7 +130,7 @@ public class BlogHomeFragment extends Fragment {
             TextView Timetext = (TextView) view.findViewById(R.id.item_time);
             Timetext.setText("On " + currentBlog.getBlogTime());
 
-            imageView= (ImageView) view.findViewById(R.id.item_img);
+            imageView = (ImageView) view.findViewById(R.id.item_img);
             ImageLoader imgLoader = new ImageLoader(parent.getContext());
             imgLoader.DisplayImage(currentBlog.getBlogImage(), R.drawable.ic_launcher, imageView);
 

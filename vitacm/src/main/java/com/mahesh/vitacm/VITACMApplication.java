@@ -5,14 +5,16 @@ package com.mahesh.vitacm;
  */
 
 import android.app.Application;
-import org.acra.*;
-import org.acra.annotation.*;
+
+import org.acra.ACRA;
+import org.acra.annotation.ReportsCrashes;
+
 
 @ReportsCrashes(
         formKey = "", // This is required for backward compatibility but not used
         formUri = "http://vitmumbai.acm.org/app/logs/report.php"
 )
-public class VITACMApplication extends Application{
+public class VITACMApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();

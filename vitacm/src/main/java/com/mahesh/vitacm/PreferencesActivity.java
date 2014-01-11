@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -34,32 +33,32 @@ public class PreferencesActivity extends PreferenceActivity {
             }
         });
 
-        Preference CurrentVersion= findPreference("CurrentVersion");
+        Preference CurrentVersion = findPreference("CurrentVersion");
         try {
             String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-            CurrentVersion.setSummary("v"+versionName);
+            CurrentVersion.setSummary("v" + versionName);
             CurrentVersion.setTitle("Application Version");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        Preference ClearData= findPreference("ClearData");
+        Preference ClearData = findPreference("ClearData");
         ClearData.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
 
-                UtilitiesMethod  utils=new UtilitiesMethod();
+                UtilitiesMethod utils = new UtilitiesMethod();
                 utils.setContext(PreferencesActivity.this);
                 utils.clearApplicationData();
-                Toast.makeText(getApplicationContext(),"Application Data Deleted",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Application Data Deleted", Toast.LENGTH_LONG).show();
                 return false;
             }
         });
 
-        Preference AboutApp= findPreference("AboutApp");
+        Preference AboutApp = findPreference("AboutApp");
         AboutApp.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                startActivity(new Intent(PreferencesActivity.this,AboutVITACMActivity.class));
+                startActivity(new Intent(PreferencesActivity.this, AboutVITACMActivity.class));
                 return false;
             }
         });

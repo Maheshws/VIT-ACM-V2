@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,7 +21,7 @@ public class AnnouncementHomeFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     private static String HEADER_BAR;
     private Activity parent;
-    private List<AnnouncementObject> allAnnouncements= new ArrayList<AnnouncementObject>();
+    private List<AnnouncementObject> allAnnouncements = new ArrayList<AnnouncementObject>();
 
 
     @Override
@@ -72,6 +71,7 @@ public class AnnouncementHomeFragment extends Fragment {
 
     private class MyAnnouncementListAdapter extends ArrayAdapter<AnnouncementObject> {
         AnnouncementObject currentAnnouncement;
+
         public MyAnnouncementListAdapter(Context context, int resource, List<AnnouncementObject> objects) {
             super(context, resource, objects);
         }

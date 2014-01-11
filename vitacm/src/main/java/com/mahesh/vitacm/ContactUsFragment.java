@@ -183,6 +183,11 @@ public class ContactUsFragment extends Fragment implements View.OnClickListener 
 
         } catch (Exception e) {
             Log.e("log_tag", "Error sending data " + e.toString());
+            getActivity().runOnUiThread(new Runnable() {
+                public void run() {
+                    regMsg.setText("Unable to connect to server. Please try again later. ");
+                }
+            });
         }
 
     }

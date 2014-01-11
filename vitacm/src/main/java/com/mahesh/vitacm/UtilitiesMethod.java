@@ -25,22 +25,22 @@ import java.util.List;
  */
 public class UtilitiesMethod {
 
-    //private static final String DOMAIN="http://192.168.2.7/app/";
+    //private static final String DOMAIN = "http://192.168.2.7/app/";
     private static final String DOMAIN = "http://vitmumbai.acm.org/app/";
     private static boolean ErrorFlag = false;
     private Context context;
-    private static boolean downloadBlog=true;
-    private static boolean downloadAnnouncement=true;
-    int serverAnnouncementindex=0;
+    private static boolean downloadBlog = true;
+    private static boolean downloadAnnouncement = true;
+    int serverAnnouncementindex = 0;
 
     public void setContext(Context c) {
         context = c;
     }
 
     public void getIndex() {
-        int currentBlogIndex=0;
-        int currentAnnouncementIndex=0;
-        int serverBlogIndex=0;
+        int currentBlogIndex = 0;
+        int currentAnnouncementIndex = 0;
+        int serverBlogIndex = 0;
 
         String URL = "getlatestindex.php";
         String RESULT;
@@ -63,30 +63,27 @@ public class UtilitiesMethod {
             if (RESULT == null) {
                 Log.e("log_utils_blog", "Error in http connection ");
                 ErrorFlag = true;
-            }
-            else{
-                String[] res=RESULT.split(",");
-                serverBlogIndex=Integer.parseInt(res[0]);
-                res[1]=res[1].replace("\"","").trim();
-                serverAnnouncementindex=Integer.parseInt(res[1]);
+            } else {
+                String[] res = RESULT.split(",");
+                serverBlogIndex = Integer.parseInt(res[0]);
+                res[1] = res[1].replace("\"", "").trim();
+                serverAnnouncementindex = Integer.parseInt(res[1]);
                 SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
-                currentBlogIndex=prefs.getInt("currentBlog",0);
-                currentAnnouncementIndex=prefs.getInt("currentAnnouncement",0);
+                currentBlogIndex = prefs.getInt("currentBlog", 0);
+                currentAnnouncementIndex = prefs.getInt("currentAnnouncement", 0);
                 SharedPreferences.Editor editor = prefs.edit();
-                if(currentAnnouncementIndex<serverAnnouncementindex) {
+                if (currentAnnouncementIndex < serverAnnouncementindex) {
                     //editor.putInt("currentAnnouncement", serverAnnouncementindex);
                     Log.e("log_utils_index", "current announcement changed");
-                }
-                else if(currentAnnouncementIndex>=serverAnnouncementindex){
-                    downloadAnnouncement=false;
+                } else if (currentAnnouncementIndex >= serverAnnouncementindex) {
+                    downloadAnnouncement = false;
                     Log.e("log_utils_index", "download announcement set false");
                 }
-                if(currentBlogIndex<serverBlogIndex) {
+                if (currentBlogIndex < serverBlogIndex) {
                     editor.putInt("currentBlog", serverBlogIndex);
                     Log.e("log_utils_index", "current blog changed");
-                }
-                else if(currentBlogIndex>=serverBlogIndex) {
-                    downloadBlog=false;
+                } else if (currentBlogIndex >= serverBlogIndex) {
+                    downloadBlog = false;
                     Log.e("log_utils_index", "download blog set false");
                 }
                 editor.commit();
@@ -99,38 +96,38 @@ public class UtilitiesMethod {
     }
 
     public void getBlog() {
-        if(downloadBlog) {
-        String URL = "getblog.php";
-        String RESULT;
-        String toFile = DOMAIN + URL;
-        InputStream isr = null;
-        try {
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost(toFile);
-            HttpResponse response = httpclient.execute(httppost);
-            HttpEntity entity = response.getEntity();
-            isr = entity.getContent();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "iso-8859-1"), 8);
-            StringBuilder sb = new StringBuilder();
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-            isr.close();
-            RESULT = sb.toString();
-            if (RESULT == null) {
-                Log.e("log_utils_blog", "Error in http connection ");
+        if (downloadBlog) {
+            String URL = "getblog.php";
+            String RESULT;
+            String toFile = DOMAIN + URL;
+            InputStream isr = null;
+            try {
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpPost httppost = new HttpPost(toFile);
+                HttpResponse response = httpclient.execute(httppost);
+                HttpEntity entity = response.getEntity();
+                isr = entity.getContent();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "iso-8859-1"), 8);
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+                isr.close();
+                RESULT = sb.toString();
+                if (RESULT == null) {
+                    Log.e("log_utils_blog", "Error in http connection ");
+                    ErrorFlag = true;
+                } else {
+                    SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("blogslist", RESULT);
+                    editor.commit();
+                }
+            } catch (Exception e) {
+                Log.e("log_utils_blog", "Error in http connection " + e.toString());
                 ErrorFlag = true;
-            } else {
-                SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("blogslist", RESULT);
-                editor.commit();
             }
-        } catch (Exception e) {
-            Log.e("log_utils_blog", "Error in http connection " + e.toString());
-            ErrorFlag = true;
-        }
         }
     }
 
@@ -169,7 +166,7 @@ public class UtilitiesMethod {
     }
 
     public void getAnnouncements() {
-        if(downloadAnnouncement){
+        if (downloadAnnouncement) {
             String URL = "getannouncements.php";
             String RESULT;
             String toFile = DOMAIN + URL;
@@ -230,6 +227,7 @@ public class UtilitiesMethod {
         }
 
     }
+
     public void fillMyAnnouncements(List<AnnouncementObject> myannounce, Context context) {
         SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
         String result = prefs.getString("announcementslist", null);
@@ -248,21 +246,19 @@ public class UtilitiesMethod {
         }
 
     }
-    public static void CopyStream(InputStream is, OutputStream os)
-    {
-        final int buffer_size=1024;
-        try
-        {
-            byte[] bytes=new byte[buffer_size];
-            for(;;)
-            {
-                int count=is.read(bytes, 0, buffer_size);
-                if(count==-1)
+
+    public static void CopyStream(InputStream is, OutputStream os) {
+        final int buffer_size = 1024;
+        try {
+            byte[] bytes = new byte[buffer_size];
+            for (; ; ) {
+                int count = is.read(bytes, 0, buffer_size);
+                if (count == -1)
                     break;
                 os.write(bytes, 0, count);
             }
+        } catch (Exception ex) {
         }
-        catch(Exception ex){}
     }
 
 
@@ -271,7 +267,7 @@ public class UtilitiesMethod {
         SharedPreferences.Editor editor = prefs.edit();
         editor.clear();
         editor.commit();
-        prefs=context.getSharedPreferences("app_data",0);
+        prefs = context.getSharedPreferences("app_data", 0);
         editor = prefs.edit();
         editor.remove("currentAnnouncement");
         editor.remove("currentBlog");
@@ -289,10 +285,10 @@ public class UtilitiesMethod {
         }
         File cacheDir;
         if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
-            cacheDir=new File(android.os.Environment.getExternalStorageDirectory(),"VITACM");
+            cacheDir = new File(android.os.Environment.getExternalStorageDirectory(), "VITACM");
         else
-            cacheDir=context.getCacheDir();
-        if(cacheDir.exists())
+            cacheDir = context.getCacheDir();
+        if (cacheDir.exists())
             deleteDir(cacheDir);
     }
 

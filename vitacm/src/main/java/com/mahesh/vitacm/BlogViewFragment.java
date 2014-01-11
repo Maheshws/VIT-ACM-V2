@@ -4,13 +4,11 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -70,13 +68,13 @@ public class BlogViewFragment extends Fragment {
         Timetext.setText("On " + currentBlog.getBlogTime());
 
 
-        WebView contentView= (WebView) getActivity().findViewById(R.id.webView);
+        WebView contentView = (WebView) getActivity().findViewById(R.id.webView);
         contentView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         contentView.getSettings().setLoadWithOverviewMode(true);
         contentView.getSettings().setUseWideViewPort(true);
         contentView.getSettings().setBuiltInZoomControls(true);
         contentView.setBackgroundColor(Color.TRANSPARENT);
-        contentView.loadDataWithBaseURL(null,currentBlog.getBlogContent(), "text/html","UTF-8", null);
+        contentView.loadDataWithBaseURL(null, currentBlog.getBlogContent(), "text/html", "UTF-8", null);
     }
 }
 
