@@ -58,6 +58,7 @@ public class MainActivity extends ActionBarActivity
             case 1:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .addToBackStack(null)
                         .commit();
                 break;
             case 2:
@@ -223,8 +224,7 @@ public class MainActivity extends ActionBarActivity
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             TextView textView = (TextView) getView().findViewById(R.id.fragemnt_message);
-            SharedPreferences prefs = this.getActivity().getSharedPreferences("app_data", 0);
-            textView.setText(Html.fromHtml(prefs.getString("facts", "<b>No Internet Connection</b>")));
+            textView.setText(Html.fromHtml("<b>Welcome to VIT ACM Chapter App v2</b>"));
         }
 
         @Override

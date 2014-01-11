@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
 
 
 public class SplashScreenActivity extends Activity {
-    private static final int MAXPROGRESS = 180;
+    private static final int MAXPROGRESS = 160;
     ProgressBar progress;
     boolean first_run = true;
 
@@ -65,8 +65,6 @@ public class SplashScreenActivity extends Activity {
                 utils.getBlog();
                 updateProgess();
                 utils.getEvents();
-                updateProgess();
-                utils.getFacts();
                 updateProgess();
                 errorFlag = utils.getErrorFlag();
                 updateProgess();
@@ -144,57 +142,3 @@ public class SplashScreenActivity extends Activity {
 
 }
 
-
-    /*public void startMainActivity(){
-        updateProgess();
-        if(!isNetworkAvailable() && first_run==true)
-        {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    progress.setProgress(140);
-                    NoConnection("No Internet Connection. Please try again later");
-                }
-            });
-
-        }
-        else
-        {
-        try {
-            UtilitiesMethod utils=new UtilitiesMethod();
-            String homeMsg=utils.getFile("facts.php");
-            updateProgess();
-            String eventsList=utils.getFile("getevents.php");
-            updateProgess();
-            String blogList=utils.getFile("getblog.php");
-            updateProgess();
-            if(homeMsg!=null){
-                SharedPreferences prefs=getSharedPreferences("app_data", 0);
-                SharedPreferences.Editor editor=prefs.edit();
-                editor.putString("facts",homeMsg);
-                editor.putString("eventslist",eventsList);
-                editor.putString("blogslist",blogList);
-                editor.putBoolean("first_run",false);
-                editor.commit();
-                updateProgess();
-                actionComplete();
-            }
-            else if(homeMsg==null && first_run==true) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        progress.setProgress(140);
-                        NoConnection("Unable to connect to server. Please try again later");
-                    }
-                });
-
-            }
-            else
-                actionComplete();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        }
-    }
-    */

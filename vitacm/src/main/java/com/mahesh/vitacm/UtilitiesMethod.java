@@ -206,41 +206,6 @@ public class UtilitiesMethod {
 
     }
 
-    public void getFacts() {
-        String URL = "facts.php";
-        String RESULT;
-        String toFile = DOMAIN + URL;
-        InputStream isr = null;
-        try {
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost(toFile);
-            HttpResponse response = httpclient.execute(httppost);
-            HttpEntity entity = response.getEntity();
-            isr = entity.getContent();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "iso-8859-1"), 8);
-            StringBuilder sb = new StringBuilder();
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-            isr.close();
-            RESULT = sb.toString();
-            if (RESULT == null) {
-                Log.e("log_utils_facts", "Error in http connection for Facts");
-                ErrorFlag = true;
-            } else {
-                SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("facts", RESULT);
-                editor.commit();
-            }
-
-        } catch (Exception e) {
-            Log.e("log_utils_facts", "Error in http connection facts" + e.toString());
-            ErrorFlag = true;
-        }
-
-    }
 
     public boolean getErrorFlag() {
         return ErrorFlag;
