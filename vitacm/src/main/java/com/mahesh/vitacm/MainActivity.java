@@ -2,7 +2,6 @@ package com.mahesh.vitacm;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -47,6 +46,10 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, PlaceholderFragment.newInstance(1))
+                .commit();
     }
 
     @Override
@@ -56,10 +59,7 @@ public class MainActivity extends ActionBarActivity
         int cno = position + 1;
         switch (cno) {
             case 1:
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                        .addToBackStack(null)
-                        .commit();
+
                 break;
             case 2:
                 fragmentManager.beginTransaction()
@@ -177,6 +177,7 @@ public class MainActivity extends ActionBarActivity
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(Title);
     }
+
 
     /**
      * A placeholder fragment containing a simple view.
