@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="BlueTheme" parent="@style/_BlueTheme"/>
+
+  <style name="_BlueTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <item name="android:editTextStyle">@style/EditTextBlueTheme</item>
+
+    <item name="android:textColorHighlight">#990099cc</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxBlueTheme</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtonBlueTheme</item>
+
+    <item name="android:buttonStyle">@style/ButtonBlueTheme</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonBlueTheme</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerBlueTheme</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemBlueTheme</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarBlueTheme</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggleBlueTheme</item>
+
+    <item name="android:listViewStyle">@style/ListViewBlueTheme</item>
+
+    <item name="android:listViewWhiteStyle">@style/ListViewBlueTheme.White</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerItemBlueTheme</item>
+	<item name="actionBarItemBackground">@drawable/selectable_background_bluetheme</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Bluetheme</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Bluetheme</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Bluetheme</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Bluetheme</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Bluetheme</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_bluetheme</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_bluetheme</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Bluetheme</item>
+
+                <!-- Light.DarkActionBar specific -->
+        <item name="actionBarWidgetTheme">@style/Theme.Bluetheme.Widget</item>
+
+  </style>
+
+</resources>
