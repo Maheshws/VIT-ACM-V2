@@ -2,6 +2,7 @@ package com.mahesh.vitacm;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -37,6 +38,10 @@ public class MainActivity extends ActionBarActivity
             setTheme(R.style.AppThemeLight);
         }*/
         setContentView(R.layout.main_activity);
+
+        SystemBarTintManager tintManager=new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setTintResource(R.drawable.ab_bottom_solid_bluetheme);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);

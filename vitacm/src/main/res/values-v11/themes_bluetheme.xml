@@ -47,6 +47,7 @@
                 <!-- Light.DarkActionBar specific -->
         <item name="android:actionBarWidgetTheme">@style/Theme.Bluetheme.Widget</item>
 
+
   </style>
 
 </resources>

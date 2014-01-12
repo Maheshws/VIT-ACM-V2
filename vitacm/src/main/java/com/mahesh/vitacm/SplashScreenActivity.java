@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -30,6 +31,9 @@ public class SplashScreenActivity extends Activity {
             getActionBar().hide();
         }
         setContentView(R.layout.activity_splash_screen);
+        SystemBarTintManager tintManager=new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setTintColor(Color.parseColor("#0099cc"));
         progress = (ProgressBar) findViewById(R.id.progressBar);
         progress.setMax(MAXPROGRESS);
         SharedPreferences prefs = getSharedPreferences("app_data", 0);

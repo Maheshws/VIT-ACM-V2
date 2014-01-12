@@ -6,4 +6,5 @@
     android:divider="@android:color/transparent"
     android:dividerHeight="0dp"
     android:background="#00536f"
+    android:fitsSystemWindows="true"
     tools:context="com.mahesh.vitacm.NavigationDrawerFragment" />
