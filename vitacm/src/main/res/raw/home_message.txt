@@ -1,0 +1,2 @@
+<b><i>Suggest some static content to display here, all html content allowed.</i></b>
+<h4><font color='#EE0000'>BUT NO IMAGES!</font></h4>

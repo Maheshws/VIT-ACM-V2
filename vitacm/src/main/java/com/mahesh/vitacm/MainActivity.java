@@ -2,6 +2,7 @@ package com.mahesh.vitacm;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.io.InputStream;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -92,15 +95,12 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 6:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, ContactUsFragment.newInstance(position + 1))
+                        .replace(R.id.container, EventDetailsFragment.newInstance(position + 1))
                         .addToBackStack(null)
                         .commit();
                 break;
             case 7:
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, EventDetailsFragment.newInstance(position + 1))
-                        .addToBackStack(null)
-                        .commit();
+
                 break;
             case 8:
                 startActivity(new Intent(this, PreferencesActivity.class));
@@ -230,7 +230,18 @@ public class MainActivity extends ActionBarActivity
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             TextView textView = (TextView) getView().findViewById(R.id.fragemnt_message);
-            textView.setText(Html.fromHtml("<b>Welcome to VIT ACM Chapter App v2</b>"));
+            try {
+                Resources res = getResources();
+                InputStream in_s = res.openRawResource(R.raw.home_message);
+
+                byte[] b = new byte[in_s.available()];
+                in_s.read(b);
+                textView.setText(Html.fromHtml(new String(b)));
+            } catch (Exception e) {
+                // e.printStackTrace();
+                textView.setText(Html.fromHtml("<b>Welcome to VIT ACM Chapter App v2</b>"));
+            }
+
         }
 
         @Override
