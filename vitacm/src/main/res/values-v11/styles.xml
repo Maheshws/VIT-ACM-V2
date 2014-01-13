@@ -1,4 +1,46 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="ButtonBlueTheme" parent="android:Widget.Holo.Light.Button">
+	  <item name="android:background">@drawable/bluetheme_btn_default_holo_light</item>
+  </style>
+
+  <style name="ImageButtonBlueTheme" parent="android:Widget.Holo.Light.ImageButton">
+	  <item name="android:background">@drawable/bluetheme_btn_default_holo_light</item>
+  </style>
+
+  <style name="SpinnerBlueTheme" parent="android:Widget.Holo.Light.Spinner">
+      <item name="android:background">@drawable/bluetheme_spinner_background_holo_light</item>
+      <item name="android:dropDownSelector">@drawable/bluetheme_list_selector_holo_light</item>
+  </style>
+
+  <style name="ProgressBarBlueTheme" parent="android:Widget.Holo.Light.ProgressBar.Horizontal">
+      <item name="android:progressDrawable">@drawable/bluetheme_progress_horizontal_holo_light</item>
+      <item name="android:indeterminateDrawable">@drawable/bluetheme_progress_indeterminate_horizontal_holo_light</item>
+  </style>
+
+  <style name="ToggleBlueTheme" parent="android:Widget.Holo.Light.Button.Toggle">
+      <item name="android:background">@drawable/bluetheme_btn_toggle_holo_light</item>
+  </style>
+  <style name="ActionBar.Solid.Bluetheme" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ab_solid_bluetheme</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_bluetheme</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_bluetheme</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Bluetheme</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Bluetheme" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_bluetheme</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Bluetheme</item>
+    </style>
+    
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Bluetheme.Widget" parent="@style/Theme.AppCompat">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Bluetheme</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Bluetheme</item>
+    </style>
 
     <style name="FullscreenTheme" parent="android:Theme.Holo">
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>

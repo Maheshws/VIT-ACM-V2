@@ -1,18 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat">
-        <!-- Customize your theme here. -->
-        <item name="android:panelBackground">#101010</item>
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="EditTextBlueTheme" parent="android:Widget.EditText">
+	  <item name="android:background">@drawable/bluetheme_edit_text_holo_light</item>
+	  <item name="android:textColor">#000000</item>
+  </style>
+
+  <style name="CheckBoxBlueTheme" parent="android:Widget.CompoundButton.CheckBox">
+      <item name="android:button">@drawable/bluetheme_btn_check_holo_light</item>
+  </style>
+
+  <style name="RadioButtonBlueTheme" parent="android:Widget.CompoundButton.RadioButton">
+      <item name="android:button">@drawable/bluetheme_btn_radio_holo_light</item>
+  </style>
+
+  <style name="ButtonBlueTheme" parent="android:Widget.Button">
+	  <item name="android:background">@drawable/bluetheme_btn_default_holo_light</item>
+	  <item name="android:minHeight">48dip</item>
+	  <item name="android:minWidth">64dip</item>
+	  <item name="android:textColor">#000000</item>
+  </style>
+
+  <style name="ImageButtonBlueTheme" parent="android:Widget.ImageButton">
+	  <item name="android:background">@drawable/bluetheme_btn_default_holo_light</item>
+  </style>
+
+  <style name="SpinnerBlueTheme" parent="android:Widget.Spinner">
+      <item name="android:background">@drawable/bluetheme_spinner_background_holo_light</item>
+      <item name="android:dropDownSelector">@drawable/bluetheme_list_selector_holo_light</item>
+  </style>
+
+  <style name="SpinnerDropDownItemBlueTheme" parent="android:Widget.DropDownItem.Spinner">
+      <item name="android:checkMark">@drawable/bluetheme_btn_radio_holo_light</item>
+  </style>
+  <style name="ProgressBarBlueTheme" parent="android:Widget.ProgressBar.Horizontal">
+      <item name="android:progressDrawable">@drawable/bluetheme_progress_horizontal_holo_light</item>
+      <item name="android:indeterminateDrawable">@drawable/bluetheme_progress_indeterminate_horizontal_holo_light</item>
+      <item name="android:minHeight">16dip</item>
+      <item name="android:maxHeight">16dip</item>
+  </style>
+
+  <style name="ToggleBlueTheme" parent="android:Widget.Button.Toggle">
+      <item name="android:background">@drawable/bluetheme_btn_toggle_holo_light</item>
+      <item name="android:minHeight">48dip</item>
+	  <item name="android:textColor">#000000</item>
+  </style>
+
+  <style name="ListViewBlueTheme" parent="android:Widget.ListView">
+      <item name="android:listSelector">@drawable/bluetheme_list_selector_holo_light</item>
+  </style>
+
+  <style name="ListViewBlueTheme.White" parent="android:Widget.ListView.White">
+      <item name="android:listSelector">@drawable/bluetheme_list_selector_holo_light</item>
+  </style>
+
+  <style name="SpinnerItemBlueTheme" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+      <item name="android:textColor">#000000</item>
+  </style>
+  
+  <style name="Theme.Bluetheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionBarItemBackground">@drawable/selectable_background_bluetheme</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Bluetheme</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Bluetheme</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Bluetheme</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Bluetheme</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Bluetheme</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_bluetheme</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_bluetheme</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Bluetheme</item>
+
+                <!-- Light.DarkActionBar specific -->
+        <item name="actionBarWidgetTheme">@style/Theme.Bluetheme.Widget</item>
+
     </style>
-    <style name="AppThemeLight" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
 
-        <item name="android:panelBackground">#101010</item>
+    <style name="ActionBar.Solid.Bluetheme" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@drawable/ab_solid_bluetheme</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_bluetheme</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_bluetheme</item>
+        <item name="progressBarStyle">@style/ProgressBar.Bluetheme</item>
     </style>
 
-    <!-- Button code -->
+    <style name="ActionBar.Transparent.Bluetheme" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="background">@drawable/ab_transparent_bluetheme</item>
+        <item name="progressBarStyle">@style/ProgressBar.Bluetheme</item>
+    </style>
+	
+    <style name="PopupMenu.Bluetheme" parent="@style/Widget.AppCompat.PopupMenu">	
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_bluetheme</item>	
+    </style>
+	
+    <style name="DropDownListView.Bluetheme" parent="@style/Widget.AppCompat.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_bluetheme</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Bluetheme" parent="@style/Widget.AppCompat.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_bluetheme</item>
+    </style>
+	
+    <style name="DropDownNav.Bluetheme" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
+        <item name="android:background">@drawable/spinner_background_ab_bluetheme</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_bluetheme</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_bluetheme</item>
+    </style>
+    
+    <style name="ProgressBar.Bluetheme" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_bluetheme</item>
+    </style>
+    
+    <style name="ActionButton.CloseMode.Bluetheme" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_bluetheme</item>
+    </style>
+    
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Bluetheme.Widget" parent="@style/Theme.AppCompat">
+        <item name="popupMenuStyle">@style/PopupMenu.Bluetheme</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Bluetheme</item>
+    </style>
+
     <style name="Default_Button">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
