@@ -77,7 +77,7 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         parent = activity;
-        HEADER_BAR = getString(R.string.title_section7);
+        HEADER_BAR = getString(R.string.title_section6);
         ((MainActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }
