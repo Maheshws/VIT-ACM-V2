@@ -31,7 +31,7 @@ public class SplashScreenActivity extends Activity {
             getActionBar().hide();
         }
         setContentView(R.layout.activity_splash_screen);
-        SystemBarTintManager tintManager=new SystemBarTintManager(this);
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
         tintManager.setTintColor(Color.parseColor("#0099cc"));
         progress = (ProgressBar) findViewById(R.id.progressBar);

@@ -203,6 +203,43 @@ public class UtilitiesMethod {
 
     }
 
+    public void getRegEvents(String roll, Context c123) {
+        String URL = "registeredevents.php?roll=" + roll;
+
+        String RESULT;
+        String toFile = DOMAIN + URL;
+        InputStream isr = null;
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost(toFile);
+            HttpResponse response = httpclient.execute(httppost);
+            HttpEntity entity = response.getEntity();
+            isr = entity.getContent();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "iso-8859-1"), 8);
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+            isr.close();
+            RESULT = sb.toString();
+            if (RESULT == null) {
+                Log.e("log_utils_myevents", "Error in http connection ");
+                ErrorFlag = true;
+            } else {
+                SharedPreferences prefs = c123.getSharedPreferences("app_data", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("regeventslist", RESULT);
+                Log.e("log_utils_myevents", RESULT);
+                editor.commit();
+            }
+        } catch (Exception e) {
+            Log.e("log_utils_myevents", "Error in http connection " + e.toString());
+            Log.e("log_utils_myevents", Log.getStackTraceString(e));
+            ErrorFlag = true;
+        }
+    }
+
 
     public boolean getErrorFlag() {
         return ErrorFlag;
@@ -228,16 +265,35 @@ public class UtilitiesMethod {
 
     }
 
+    public void fillRegEvents(List<RegEventsObject> allRegEvents, Context context) {
+        SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
+        String result = prefs.getString("regeventslist", null);
+        try {
+            JSONArray jArray = new JSONArray(result);
+
+            for (int i = 0; i < jArray.length(); i++) {
+                JSONObject json = jArray.getJSONObject(i);
+                allRegEvents.add(new RegEventsObject(json.getInt("index"), json.getString("ename")));
+
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            Log.e("log_tag_reg event", "Error Parsing Data " + e.toString(), e);
+        }
+    }
+
+
     public void fillMyAnnouncements(List<AnnouncementObject> myannounce, Context context) {
         SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
-        String result = prefs.getString("announcementslist", null);
+        String result = prefs.getString("regeventslist", null);
         try {
             JSONArray jArray = new JSONArray(result);
 
             for (int i = 0; i < jArray.length(); i++) {
                 JSONObject json = jArray.getJSONObject(i);
                 myannounce.add(new AnnouncementObject(json.getInt("id"), json.getString("title"), json.getString("message")));
-
+                Log.e("Adding", json.getInt("id") + "," + json.getString("title") + "," + json.getString("message"));
             }
 
         } catch (Exception e) {
@@ -305,4 +361,6 @@ public class UtilitiesMethod {
 
         return dir.delete();
     }
+
+
 }

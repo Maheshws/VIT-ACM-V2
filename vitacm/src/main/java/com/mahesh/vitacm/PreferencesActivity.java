@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -22,7 +21,7 @@ public class PreferencesActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preference_layout_holder);
         addPreferencesFromResource(R.xml.preferences_activity);
-        SystemBarTintManager tintManager=new SystemBarTintManager(this);
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
         tintManager.setTintResource(R.drawable.ab_bottom_solid_bluetheme);
 

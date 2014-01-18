@@ -3,7 +3,6 @@ package com.mahesh.vitacm;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -42,7 +41,7 @@ public class MainActivity extends ActionBarActivity
         }*/
         setContentView(R.layout.main_activity);
 
-        SystemBarTintManager tintManager=new SystemBarTintManager(this);
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
         tintManager.setTintResource(R.drawable.ab_bottom_solid_bluetheme);
 
@@ -100,7 +99,10 @@ public class MainActivity extends ActionBarActivity
                         .commit();
                 break;
             case 7:
-
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, RegisteredEventsFragment.newInstance(position + 1))
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case 8:
                 startActivity(new Intent(this, PreferencesActivity.class));
