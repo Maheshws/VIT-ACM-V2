@@ -13,6 +13,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Window;
 import android.widget.ProgressBar;
 
@@ -103,6 +105,16 @@ public class SplashScreenActivity extends Activity {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+        SharedPreferences pref = getSharedPreferences("user_settings", 0);
+        Boolean Service = pref.getBoolean("Notification", false);
+        if(Service)
+        {
+            Log.d("service", "Preferences is OFF!!");
+        }
+        else
+        {
+            startService(new Intent(this,NotificationService.class));
         }
         startActivity(new Intent(this, MainActivity.class));
         finish();

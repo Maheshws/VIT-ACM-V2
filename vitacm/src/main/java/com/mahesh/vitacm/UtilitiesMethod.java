@@ -32,6 +32,7 @@ public class UtilitiesMethod {
     private static boolean downloadBlog = true;
     private static boolean downloadAnnouncement = true;
     int serverAnnouncementindex = 0;
+    String ATitle,AMessage;
 
     public void setContext(Context c) {
         context = c;
@@ -193,6 +194,7 @@ public class UtilitiesMethod {
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putInt("currentAnnouncement", serverAnnouncementindex);
                     editor.putString("announcementslist", RESULT);
+                    Log.e("log_utils_announcements", RESULT);
                     editor.commit();
                 }
             } catch (Exception e) {
@@ -286,20 +288,118 @@ public class UtilitiesMethod {
 
     public void fillMyAnnouncements(List<AnnouncementObject> myannounce, Context context) {
         SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
-        String result = prefs.getString("regeventslist", null);
+        String result = prefs.getString("announcementslist", null);
         try {
             JSONArray jArray = new JSONArray(result);
 
             for (int i = 0; i < jArray.length(); i++) {
                 JSONObject json = jArray.getJSONObject(i);
                 myannounce.add(new AnnouncementObject(json.getInt("id"), json.getString("title"), json.getString("message")));
-                Log.e("Adding", json.getInt("id") + "," + json.getString("title") + "," + json.getString("message"));
+
             }
 
         } catch (Exception e) {
             // TODO: handle exception
             Log.e("log_tag_announcement", "Error Parsing Data for announcement" + e.toString());
+            e.printStackTrace();
         }
+
+    }
+
+    public boolean getAnnouncementIndex() {
+        int currentAnnouncementIndex = 0;
+        String URL = "getlatestindex.php";
+        String RESULT;
+        String toFile = DOMAIN + URL;
+        InputStream isr = null;
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost(toFile);
+            HttpResponse response = httpclient.execute(httppost);
+            HttpEntity entity = response.getEntity();
+            isr = entity.getContent();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "iso-8859-1"), 8);
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+            isr.close();
+            RESULT = sb.toString();
+            if (RESULT == null) {
+                Log.e("log_utils_blog", "Error in http connection ");
+
+                ErrorFlag = true;
+            } else {
+                String[] res = RESULT.split(",");
+                res[1] = res[1].replace("\"", "").trim();
+                serverAnnouncementindex = Integer.parseInt(res[1]);
+                SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
+                currentAnnouncementIndex = prefs.getInt("currentAnnouncement", 0);
+                if (currentAnnouncementIndex < serverAnnouncementindex) {
+                    //editor.putInt("currentAnnouncement", serverAnnouncementindex);
+                    Log.e("log_utils_index", "new announcement available");
+                    return true;
+                }
+                else
+                return false;
+            }
+        } catch (Exception e) {
+            Log.e("log_utils_getancc", "Error in http connection " + e.toString());
+            e.printStackTrace();
+            ErrorFlag = true;
+        }
+        return false;
+    }
+
+    public void getCurrentAnnouncement() {
+        String URL = "getnotifications.php";
+        String RESULT;
+        String toFile = DOMAIN + URL;
+        InputStream isr = null;
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost(toFile);
+            HttpResponse response = httpclient.execute(httppost);
+            HttpEntity entity = response.getEntity();
+            isr = entity.getContent();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "iso-8859-1"), 8);
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+            isr.close();
+            RESULT = sb.toString();
+            if (RESULT == null) {
+                Log.e("log_utils_blog", "Error in http connection ");
+                ErrorFlag = true;
+            } else {
+                try {
+                    Log.e("log_utils_annc", RESULT);
+                    JSONArray jArray = new JSONArray(RESULT);
+                    for (int i = 0; i < jArray.length(); i++) {
+                    JSONObject json = jArray.getJSONObject(i);
+                    ATitle=json.getString("title");
+                    AMessage=json.getString("message");
+                    }
+                } catch (Exception e) {
+                    // TODO: handle exception
+                    Log.e("log_tag_reg event", "Error Parsing Data " + e.toString(), e);
+                }
+            }
+        } catch (Exception e) {
+            Log.e("log_utils_events", "Error in http connection " + e.toString());
+            ErrorFlag = true;
+        }
+    }
+
+    public String getATitle(){
+        return ATitle;
+    }
+
+    public String getAMessage(){
+        return AMessage;
 
     }
 
