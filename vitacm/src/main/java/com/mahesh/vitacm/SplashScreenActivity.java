@@ -13,16 +13,19 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 
 public class SplashScreenActivity extends Activity {
     private static final int MAXPROGRESS = 160;
     ProgressBar progress;
     boolean first_run = true;
+    Animation animFadein;
 
     @SuppressLint("NewApi")
     @Override
@@ -32,7 +35,11 @@ public class SplashScreenActivity extends Activity {
             getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
             getActionBar().hide();
         }
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.splash_screen_activity);
+        TextView txtMessage = (TextView) findViewById(R.id.fullscreen_content);
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_in);
+        txtMessage.startAnimation(animFadein);
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
         tintManager.setTintColor(Color.parseColor("#0099cc"));
@@ -45,6 +52,7 @@ public class SplashScreenActivity extends Activity {
                 startMainActivityNew();
             }
         }).start();
+
     }
 
     public void startMainActivityNew() {
