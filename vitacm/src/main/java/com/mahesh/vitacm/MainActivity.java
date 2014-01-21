@@ -1,7 +1,10 @@
 package com.mahesh.vitacm;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -44,6 +47,7 @@ public class MainActivity extends ActionBarActivity
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
         tintManager.setTintResource(R.drawable.ab_bottom_solid_bluetheme);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -105,6 +109,7 @@ public class MainActivity extends ActionBarActivity
                         .commit();
                 break;
             case 8:
+
                 startActivity(new Intent(this, PreferencesActivity.class));
                 break;
             default:
@@ -184,6 +189,8 @@ public class MainActivity extends ActionBarActivity
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(Title);
     }
+
+
 
 
     /**
