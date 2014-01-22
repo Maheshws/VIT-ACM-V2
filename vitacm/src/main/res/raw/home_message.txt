@@ -1,2 +1,7 @@
-<b><i>Suggest some static content to display here, all html content allowed.</i></b>
-<h4><font color='#EE0000'>BUT NO IMAGES!</font></h4>
+<h3><b>What is ACM?</b></h3>
+The <font color='#0099CC'>Association for Computing Machinery</font> is the world's largest educational computing society and the premier membership organization for computing professionals. <font color='#0099CC'>ACM</font> aims to advance computing as a science as well as a profession by way of delivering resources such as journals, conferences, workshops and seminars.
+<br><br>
+<h3><b>VIT ACM</b></h3>
+Our goal at the <font color='#0099CC'>Vidyalankar ACM</font> is to bring home this mandate and advance the applications of technology. We strive to disseminate this information by organizing guest lectures, workshops conducted by eminent personalities in that field, projects and various other activities.
+<br><br>
+Other than that, we also aim to give back to society and the College by tutoring and spreading awareness of technology and the applications of computing.
