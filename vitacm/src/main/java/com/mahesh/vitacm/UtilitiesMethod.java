@@ -32,7 +32,7 @@ public class UtilitiesMethod {
     private static boolean downloadBlog = true;
     private static boolean downloadAnnouncement = true;
     int serverAnnouncementindex = 0;
-    String ATitle,AMessage;
+    String ATitle, AMessage;
 
     public void setContext(Context c) {
         context = c;
@@ -74,7 +74,7 @@ public class UtilitiesMethod {
                 currentAnnouncementIndex = prefs.getInt("currentAnnouncement", 0);
                 SharedPreferences.Editor editor = prefs.edit();
                 if (currentAnnouncementIndex < serverAnnouncementindex) {
-                    //editor.putInt("currentAnnouncement", serverAnnouncementindex);
+                    editor.putInt("currentAnnouncement", serverAnnouncementindex);
                     Log.e("log_utils_index", "current announcement changed");
                 } else if (currentAnnouncementIndex >= serverAnnouncementindex) {
                     downloadAnnouncement = false;
@@ -337,12 +337,11 @@ public class UtilitiesMethod {
                 SharedPreferences prefs = context.getSharedPreferences("app_data", 0);
                 currentAnnouncementIndex = prefs.getInt("currentAnnouncement", 0);
                 if (currentAnnouncementIndex < serverAnnouncementindex) {
-                    //editor.putInt("currentAnnouncement", serverAnnouncementindex);
+
                     Log.e("log_utils_index", "new announcement available");
                     return true;
-                }
-                else
-                return false;
+                } else
+                    return false;
             }
         } catch (Exception e) {
             Log.e("log_utils_getancc", "Error in http connection " + e.toString());
@@ -379,9 +378,9 @@ public class UtilitiesMethod {
                     Log.e("log_utils_annc", RESULT);
                     JSONArray jArray = new JSONArray(RESULT);
                     for (int i = 0; i < jArray.length(); i++) {
-                    JSONObject json = jArray.getJSONObject(i);
-                    ATitle=json.getString("title");
-                    AMessage=json.getString("message");
+                        JSONObject json = jArray.getJSONObject(i);
+                        ATitle = json.getString("title");
+                        AMessage = json.getString("message");
                     }
                 } catch (Exception e) {
                     // TODO: handle exception
@@ -394,11 +393,11 @@ public class UtilitiesMethod {
         }
     }
 
-    public String getATitle(){
+    public String getATitle() {
         return ATitle;
     }
 
-    public String getAMessage(){
+    public String getAMessage() {
         return AMessage;
 
     }
@@ -423,11 +422,7 @@ public class UtilitiesMethod {
         SharedPreferences.Editor editor = prefs.edit();
         editor.clear();
         editor.commit();
-        prefs = context.getSharedPreferences("app_data", 0);
-        editor = prefs.edit();
-        editor.remove("currentAnnouncement");
-        editor.remove("currentBlog");
-        editor.commit();
+
         File cache = context.getCacheDir();
         File appDir = new File(cache.getParent());
         if (appDir.exists()) {
