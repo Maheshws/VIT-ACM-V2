@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,9 +32,9 @@
                 android:layout_marginRight="5dip"
                 android:paddingLeft="3dip"
                 android:paddingRight="3dip"
-                android:stretchColumns="1" >
+                android:stretchColumns="1">
 
-                <TableRow android:padding="5dp" >
+                <TableRow android:padding="5dp">
 
                     <TextView
                         android:id="@+id/textSResult"
@@ -48,12 +48,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="FirstName  LastName"
-                        android:inputType="textPersonName" >
+                        android:inputType="textPersonName">
 
                     </EditText>
                 </TableRow>
 
-                <TableRow android:padding="5dp" >
+                <TableRow android:padding="5dp">
 
                     <TextView
                         android:id="@+id/TextView01"
@@ -71,7 +71,7 @@
 
                 </TableRow>
 
-                <TableRow android:padding="5dp" >
+                <TableRow android:padding="5dp">
 
                     <TextView
                         android:id="@+id/TextView02"
@@ -89,7 +89,7 @@
 
                 </TableRow>
 
-                <TableRow android:padding="5dp" >
+                <TableRow android:padding="5dp">
 
                     <TextView
                         android:id="@+id/textView3"
@@ -106,7 +106,7 @@
 
                 </TableRow>
 
-                <TableRow android:padding="5dp" >
+                <TableRow android:padding="5dp">
 
                     <TextView
                         android:id="@+id/TextView03"
@@ -119,7 +119,7 @@
                         android:id="@+id/rollno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="12XXXXXX"
+                        android:hint="1XXXXXXX"
                         android:inputType="text|textCapCharacters" />
 
                 </TableRow>

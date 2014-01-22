@@ -1,10 +1,8 @@
 package com.mahesh.vitacm;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -191,8 +189,6 @@ public class MainActivity extends ActionBarActivity
     }
 
 
-
-
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -239,6 +235,7 @@ public class MainActivity extends ActionBarActivity
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             TextView textView = (TextView) getView().findViewById(R.id.fragemnt_message);
+
             try {
                 Resources res = getResources();
                 InputStream in_s = res.openRawResource(R.raw.home_message);
@@ -250,6 +247,7 @@ public class MainActivity extends ActionBarActivity
                 // e.printStackTrace();
                 textView.setText(Html.fromHtml("<b>Welcome to VIT ACM Chapter App v2</b>"));
             }
+
 
         }
 

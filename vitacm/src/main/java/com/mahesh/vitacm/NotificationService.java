@@ -60,17 +60,17 @@ public class NotificationService extends Service {
                 }
             }.start();
 
-                Calendar cal = Calendar.getInstance();
+            Calendar cal = Calendar.getInstance();
 
-                // add 15 minutes to the calendar object
-                cal.add(Calendar.MINUTE, 30);
+            // add 15 minutes to the calendar object
+            cal.add(Calendar.MINUTE, 30);
 
-                Intent in = new Intent(this, NotificationService.class);
-                PendingIntent pi = PendingIntent.getService(this, 123, in,
-                        PendingIntent.FLAG_UPDATE_CURRENT);
+            Intent in = new Intent(this, NotificationService.class);
+            PendingIntent pi = PendingIntent.getService(this, 123, in,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
 
-                AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
-                am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pi);
+            AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+            am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pi);
 
         }
         return super.onStartCommand(intent, flags, startId);
@@ -86,15 +86,14 @@ public class NotificationService extends Service {
     }
 
     boolean getVersion() {
-        UtilitiesMethod utils=new UtilitiesMethod();
+        UtilitiesMethod utils = new UtilitiesMethod();
         utils.setContext(NotificationService.this);
-        if(utils.getAnnouncementIndex()){
+        if (utils.getAnnouncementIndex()) {
             utils.getCurrentAnnouncement();
-            nTitle=utils.getATitle();
-            nMessage=utils.getAMessage();
+            nTitle = utils.getATitle();
+            nMessage = utils.getAMessage();
             return true;
-        }
-        else
+        } else
             return false;
     }
 

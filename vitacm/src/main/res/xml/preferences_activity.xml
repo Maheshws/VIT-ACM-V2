@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Options" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Options">
     <PreferenceCategory android:title="Application Settings">
-        <CheckBoxPreference android:title="Turn off Notification" android:summary="Turn off notifications for events &amp; announcements." android:key="Notification" android:defaultValue="FALSE"/>
+        <CheckBoxPreference
+            android:title="Turn off Notification"
+            android:summary="Turn off notifications for events &amp; announcements."
+            android:key="Notification"
+            android:defaultValue="FALSE" />
 
     </PreferenceCategory>
     <PreferenceCategory android:title="Miscellaneous">
-        <Preference android:key="AboutApp" android:title="About VIT ACM"></Preference>
-        <Preference android:key="ClearData" android:title="Clear Application Data"></Preference>
-        <Preference android:key="ContactUs" android:title="Contact VIT ACM Team" android:summary="via Email">
-            <intent android:action="android.intent.action.VIEW"
-                android:data="@string/contact_developer_uri"/>
+        <Preference
+            android:key="AboutApp"
+            android:title="About VIT ACM"></Preference>
+        <Preference
+            android:key="ClearData"
+            android:title="Clear Application Data"></Preference>
+        <Preference
+            android:key="ContactUs"
+            android:title="Contact VIT ACM Team"
+            android:summary="via Email">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/contact_developer_uri" />
         </Preference>
-        <Preference android:key="CurrentVersion" android:title="Current Version"></Preference>
+        <Preference
+            android:key="CurrentVersion"
+            android:title="Current Version"></Preference>
 
-        <Preference android:key="VisitWebsite" android:title="Visit VIT ACM Website" android:summary="Click here!">
-            <intent android:action="android.intent.action.VIEW"
+        <Preference
+            android:key="VisitWebsite"
+            android:title="Visit VIT ACM Website"
+            android:summary="Click here!">
+            <intent
+                android:action="android.intent.action.VIEW"
                 android:data="http://vitmumbai.acm.org" />
         </Preference>
-        <Preference android:key="VisitTeamPage" android:title="VIT ACM Team">
+        <!--<Preference android:key="VisitTeamPage" android:title="VIT ACM Team">
             <intent android:action="android.intent.action.VIEW"
                 android:data="http://vitmumbai.acm.org/team.php" />
-        </Preference>
+        </Preference>-->
     </PreferenceCategory>
 </PreferenceScreen>

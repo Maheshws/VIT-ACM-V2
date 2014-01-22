@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">VIT ACM v2</string>
+    <string name="app_name">VIT ACM Chapter</string>
     <string name="title_section1">Home</string>
     <string name="title_section2">Home</string>
     <string name="title_section3">Account</string>
@@ -47,6 +47,6 @@
         <item>BE - CMPN</item>
         <item>BE - IT</item>
         <item>BE - BIOM</item>
-        <item>Others </item>
+        <item>Others</item>
     </string-array>
 </resources>

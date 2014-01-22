@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,9 +87,9 @@ public class AnnouncementHomeFragment extends Fragment {
             currentAnnouncement = allAnnouncements.get(position);
 
             TextView Titletext = (TextView) view.findViewById(R.id.item_title);
-            Titletext.setText(currentAnnouncement.getATitle());
+            Titletext.setText(Html.fromHtml(currentAnnouncement.getATitle()));
             TextView Messagetext = (TextView) view.findViewById(R.id.item_content);
-            Messagetext.setText(currentAnnouncement.getAContent());
+            Messagetext.setText(Html.fromHtml(currentAnnouncement.getAContent()));
 
             return view;
         }

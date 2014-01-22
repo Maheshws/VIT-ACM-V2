@@ -1,12 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.mahesh.vitacm.MainActivity" >
-    <item android:id="@+id/action_account"
+    tools:context="com.mahesh.vitacm.MainActivity">
+    <item
+        android:id="@+id/action_account"
         android:title="@string/action_account"
         android:icon="@drawable/ic_person"
         app:showAsAction="ifRoom" />
-    <item android:id="@+id/action_events"
+    <item
+        android:id="@+id/action_events"
         android:title="@string/action_events"
         android:icon="@drawable/ic_date"
         app:showAsAction="ifRoom" />

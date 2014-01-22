@@ -118,13 +118,10 @@ public class SplashScreenActivity extends Activity {
         }
         SharedPreferences pref = getSharedPreferences("user_settings", 0);
         Boolean Service = pref.getBoolean("Notification", false);
-        if(Service)
-        {
+        if (Service) {
             Log.d("service", "Preferences is OFF!!");
-        }
-        else
-        {
-            startService(new Intent(this,NotificationService.class));
+        } else {
+            startService(new Intent(this, NotificationService.class));
         }
         startActivity(new Intent(this, MainActivity.class));
         finish();

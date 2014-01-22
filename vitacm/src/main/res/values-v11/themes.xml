@@ -3,51 +3,62 @@
 <!-- Generated with http://android-holo-colors.com -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <style name="BlueTheme" parent="@style/_BlueTheme"/>
+    <style name="BlueTheme" parent="@style/_BlueTheme" />
 
-  <style name="_BlueTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="_BlueTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
-    <item name="android:editTextBackground">@drawable/bluetheme_edit_text_holo_light</item>
+        <item name="android:editTextBackground">@drawable/bluetheme_edit_text_holo_light</item>
 
-    <item name="android:textColorHighlight">#990099cc</item>
-    <item name="android:textSelectHandleLeft">@drawable/bluetheme_text_select_handle_left</item>
-    <item name="android:textSelectHandleRight">@drawable/bluetheme_text_select_handle_right</item>
-    <item name="android:textSelectHandle">@drawable/bluetheme_text_select_handle_middle</item>
+        <item name="android:textColorHighlight">#990099cc</item>
+        <item name="android:textSelectHandleLeft">@drawable/bluetheme_text_select_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/bluetheme_text_select_handle_right
+        </item>
+        <item name="android:textSelectHandle">@drawable/bluetheme_text_select_handle_middle</item>
 
-    <item name="android:listChoiceIndicatorMultiple">@drawable/bluetheme_btn_check_holo_light</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/bluetheme_btn_check_holo_light
+        </item>
 
-    <item name="android:listChoiceIndicatorSingle">@drawable/bluetheme_btn_radio_holo_light</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/bluetheme_btn_radio_holo_light
+        </item>
 
-    <item name="android:buttonStyle">@style/ButtonBlueTheme</item>
+        <item name="android:buttonStyle">@style/ButtonBlueTheme</item>
 
-    <item name="android:imageButtonStyle">@style/ImageButtonBlueTheme</item>
+        <item name="android:imageButtonStyle">@style/ImageButtonBlueTheme</item>
 
-    <item name="android:dropDownSpinnerStyle">@style/SpinnerBlueTheme</item>
+        <item name="android:dropDownSpinnerStyle">@style/SpinnerBlueTheme</item>
 
-    <item name="android:progressBarStyleHorizontal">@style/ProgressBarBlueTheme</item>
+        <item name="android:progressBarStyleHorizontal">@style/ProgressBarBlueTheme</item>
 
-    <item name="android:buttonStyleToggle">@style/ToggleBlueTheme</item>
+        <item name="android:buttonStyleToggle">@style/ToggleBlueTheme</item>
 
-    <item name="android:listChoiceBackgroundIndicator">@drawable/bluetheme_list_selector_holo_light</item>
+        <item name="android:listChoiceBackgroundIndicator">
+            @drawable/bluetheme_list_selector_holo_light
+        </item>
 
-    <item name="android:activatedBackgroundIndicator">@drawable/bluetheme_activated_background_holo_light</item>
+        <item name="android:activatedBackgroundIndicator">
+            @drawable/bluetheme_activated_background_holo_light
+        </item>
 
-    <item name="android:fastScrollThumbDrawable">@drawable/bluetheme_fastscroll_thumb_holo</item>
-	
-	<item name="android:actionBarItemBackground">@drawable/selectable_background_bluetheme</item>
+        <item name="android:fastScrollThumbDrawable">@drawable/bluetheme_fastscroll_thumb_holo
+        </item>
+
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_bluetheme
+        </item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Bluetheme</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Bluetheme</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Bluetheme</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.Bluetheme</item>
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Bluetheme</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_bluetheme</item>
-        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_bluetheme</item>
-        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Bluetheme</item>
-        
-                <!-- Light.DarkActionBar specific -->
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_bluetheme
+        </item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Bluetheme
+        </item>
+
+        <!-- Light.DarkActionBar specific -->
         <item name="android:actionBarWidgetTheme">@style/Theme.Bluetheme.Widget</item>
 
 
-  </style>
+    </style>
 
 </resources>
